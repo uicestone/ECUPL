@@ -1,0 +1,145 @@
+@charset "gb2312";
+/* CSS Document */
+
+.renren_login{
+	width:330px;
+	line-height:20px;
+	margin:0 auto;
+	}
+.renren_profile_icon{
+    display: inline-block;
+    float: right;
+    margin-right: 40px;
+    margin-top: -43px;
+    vertical-align: middle;
+}
+li{list-style:none;}
+.tablist{display:none;}
+#tab1{width:320px;height:34px;border-bottom:0;background:url(images/title.gif) repeat-x;}
+#tab1 ul{margin:0;padding:0;}
+#tab1 li{float:left; width:49%;height:34px;line-height:34px;text-align:center;border:1px #ebf7ff solid;cursor:pointer;}
+#tab1 li.now{color:#fff;background:#5299c4;font-weight:bold;}
+.rr_content h1 {
+	border-bottom:#deeffb solid 1px;
+	padding-bottom:10px;
+	font-size:12px;
+	font-weight:normal;
+}
+.rr_content h1 span.name {
+	margin:0 10px;
+	color:#0082cb;
+	font-weight:bold;
+}
+.rr_content ul{
+margin-top:16px;
+}
+.rr_content ul li{
+padding:10px 0;
+overflow:hidden;
+}
+
+.rr_content ul li.firstLi{
+padding-top:5px;
+}
+.rr_content ul li input{
+margin-left:30px;
+}
+.rr_content ul li .setWord{
+margin-left:30px;
+}
+.rr_content ul li span{
+float:left;
+}
+.rr_content ul li input.firstInput{
+
+}
+.rr_content ul li select{
+width:200px;
+height:20px;
+padding:0;
+}
+.rr_content .title{
+padding-left:28px;
+font-size:12px;
+font-weight:normal;
+_padding-left:33;
+}
+
+.rr_content ul li input.saveButton{
+margin-left:30px;
+cursor:pointer;
+}
+.rr_content a{
+	margin-left: 15px;
+	position: relative;
+	top:-2px;
+    color: #0082CB;
+    text-decoration: none;
+}
+
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {
+	display: inline-block;
+}
+/* Hide from IE Mac \*/
+.clearfix {
+	display: block;
+}
+/* End hide from IE Mac */
+
+	.tabUl {
+	border-bottom:#c9deec solid 1px;
+	margin-top:20px;
+}
+.tabUl li {
+	float:left;
+	margin-right:10px;
+	margin-bottom:-1px;
+	position:relative;/*修复在IE中的bug，如果加上这句话则默认有z-index值*/
+}
+.tabUl li a {
+	padding:3px 7px;
+	display:block;
+	border:#c9deec solid 1px;
+	background: none repeat scroll 0 0 #c9deec;
+}
+.tabUl li a:hover {
+	text-decoration:none;
+}
+.tabUl li.tabSeleted a {
+	background:  #FFFFFF;
+	border-bottom-color: #FFFFFF;
+}
+.formComponet {
+	margin-top:15px;
+	margin-left:25px;
+	_margin-left:50px;
+}
+.formComponet li {
+	margin-bottom:10px;
+}
+.formComponet li input, .formComponet li span {
+	float:left;
+}
+
+
+.notDisplay {
+	display:none;
+}
+
+.putMiddle{
+width:305px;
+margin-left:65px;
+}
+
+/*modify the width of div which has attribute of "class = blr" and override the css style in 'data/cache/style_1_common.css?1kV' */
+.blr{
+width:450px;
+}

@@ -1,0 +1,213 @@
+<!--{template common/header}-->
+<script language="javascript" type="text/javascript">
+	function GetCookie(sName)
+	{
+		var aCookie = document.cookie.split("; ");
+		for (var i=0; i < aCookie.length; i++)
+		{
+		  
+		  var aCrumb = aCookie[i].split("=");
+		  if (sName == aCrumb[0])
+		  return unescape(aCrumb[1]);
+		} 
+	}
+	if(document.URL=="{$_G['siteurl']}plugin.php?id=renren:connect") {
+		var backurl=GetCookie("old_url_to_renren");
+		if(backurl==null||backurl=="")
+		{
+			backurl="index.php";
+		}
+		window.location.href=backurl;
+	}
+</script>
+<!--{if !$divuser && (($isbind['bing']==1 && $isbind['tag']!=2) || !$_G['renren'])}-->
+
+	<script language="javascript" type="text/javascript">
+	
+	var backurl=GetCookie("old_url_to_renren");
+	if(backurl==null||backurl=="")
+	{
+		backurl="index.php";
+	}
+		window.location.href=backurl;
+	</script>
+<!--{else}-->
+	<!--{if $divuser}-->
+	
+	<script type="text/javascript">
+		function rr_chglogin(){
+			hideWindow('login');
+			hideWindow('register');
+			setTimeout("showWindow('renren','plugin.php?id=renren:connect&chglogin=1')",500);
+
+		}
+	</script>
+	
+	<div class="blr" style="width: 450px;">
+              <h3 style="background: none no-repeat scroll 0% 0% rgb(5, 91, 174); cursor: move;" class="flb" id="fctrl_renren"> <em id="returnmessage_LR573" fwin="renren"></em> <span><a href="javascript:;" class="flbc" onclick="hideWindow('renren', 0, 1);" title="{lang renren:close}">{lang renren:close}</a></span>
+                <p style="color:#fff;width:200px;">{lang renren:rr_dz_user}</p>
+              </h3>
+              <div style="padding: 10px 20px;">
+               <form method="post" action="plugin.php?id=renren:connect" >
+			   
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<p>{lang renren:log_tip3}</p>
+				<div style="margin-top:10px;margin-bottom:10px;border-bottom:#999 1px dashed;">
+				<p>{lang renren:log_nowrrname}:<strong>$user_info->rrname</strong></p>
+				<!--{if $isbind['bing']}-->
+				<p>{lang renren:log_nowusername}:<strong>$isbind['username']</strong></p>
+				<!--{else}-->
+				[{lang renren:log_unbind}]
+				<!--{/if}-->
+				</div>
+				<div style="text-align:center;margin-bottom:10px;">
+				<p>{lang renren:log_tip4}</p>
+				<p>{lang renren:log_tip5}</p>
+				</div>
+				<div style="text-align:center;margin-bottom:10px;">
+					<button class="pn pnc" type="button" name="rrchange" value="true" onclick="rr_chglogin();"><span>{lang renren:rr_change}</span></button>&nbsp;&nbsp;
+					<a id="wlgq" name="wlgq" href="http://graph.renren.com/oauth/authorize?x_renew=true&client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" target="_blank"><button class="pn pnc" type="button" name="rrchglogout" value="true" ><span>{lang renren:rr_chglogout}</span></button></a>
+				</div>
+			</form>
+		</div>
+     </div>
+
+
+	
+	<!--{else}-->
+		<!--{if $isbind[tag]!=2}-->
+		  <div class="blr" style="width: 450px;">
+              <h3 style="background: none no-repeat scroll 0% 0% rgb(5, 91, 174); cursor: move;" class="flb" id="fctrl_renren"> <em id="returnmessage_LR573" fwin="renren"></em> <span><a href="javascript:;" class="flbc" onclick="hideWindow('renren', 0, 1);" title="{lang renren:close}">{lang renren:close}</a></span>
+                <p style="color:#fff;width:200px;">{lang renren:rr_dz_user}</p>
+              </h3>
+              <div style="padding: 10px 20px;">
+                <p>$username,{lang renren:log_tip1}</p>
+				<form method="post" action="plugin.php?id=renren:connect" >
+						<input type="hidden" name="formhash" value="{FORMHASH}" />
+                <ul class="tabUl clearfix" id="tabs">
+                  <li class="tabSeleted" style="margin-left:25px;"><a href="javascript:;" id="1">{lang renren:log_noid}</a></li>
+                  <li ><a href="javascript:;" id="2" >{lang renren:log_beid}</a></li>
+                </ul>
+                <ul id="completeId-ul" class="formComponet clearfix  putMiddle">
+                  <li class="clearfix"><span>{lang renren:dz_username}:</span>
+                   <input type="text" name="username" value="$username" class="txt"/></label>
+                  </li>
+					<!--{if $user_info->parden==1}-->
+					<li class="clearfix"><p style="float:left;text-align:left;color:#ff0000; width:280px">{lang renren:rr_parden}</p></li>
+					<!--{/if}-->
+					<!--{if  $_G['cache']['plugin']['renren']['rr_email']}-->
+					<li class="clearfix"><span>{lang renren:dz_email}:</span><input type="text" name="email" value="" class="txt" /></label>
+					<p style="float:left">{lang renren:dz_emailtip}</p></li>
+					<!--{/if}-->
+					<!--{if  $_G['cache']['plugin']['renren']['rr_password']}-->
+					<li class="clearfix"><span>{lang renren:dz_password}:</span><input type="text" name="password" value="" class="txt" /></label></li>
+					<!--{/if}-->
+
+				  <li class="clearfix"><span>{lang renren:dz_avsync}:</span>
+                    <input input name="rr_ava" type="checkbox" value="1" checked />
+                    <span>{lang renren:rr_avsync}</span></li>
+                  <li class="clearfix buttons">
+                    <input type="submit" name="rradmincreatesubmit" id="bgsubmit2" value="{lang renren:renren_ok}" style="margin-left:55px;"/>
+                    <input type="button" onclick="hideWindow('renren', 0, 1);" value="{lang renren:renren_cancel}" style="margin-left:15px;"/>
+                  </li>
+                </ul>
+				</form>
+                <form method="post" autocomplete="off" action="plugin.php?id=renren:connect">
+                <ul id="bindExistedId-ul" class="formComponet floatInput clearfix putMiddle notDisplay" style = 'display:none'>
+				<input type="hidden" name="formhash" value="{FORMHASH}" />
+				<input type="hidden" name="handlekey" value="lostpwform" />
+                    <li class="clearfix"><span>{lang renren:username}:</span><input type="text" name="username" size="25" value=""  tabindex="1" class="txt" /></li>
+                    <li class="clearfix"><span style="margin-left:12px;">{lang renren:password}:</span><input type="password" name="password" size="25" value=""  tabindex="1" class="txt" /></li>
+					<li class="clearfix"><span style="margin-left:12px;">{lang renren:security}:</span>
+					<select onchange="if(this.value &gt; 0) {$('answernew').style.display='';} else {$('answernew').style.display='none';}" tabindex="3" name="questionidnew" style="width:180px">
+									<option value="0">{lang renren:security_question}</option>
+									<option value="1">{lang renren:security_question_1}</option>
+									<option value="2">{lang renren:security_question_2}</option>
+									<option value="3">{lang renren:security_question_3}</option>
+									<option value="4">{lang renren:security_question_4}</option>
+									<option value="5">{lang renren:security_question_5}</option>
+									<option value="6">{lang renren:security_question_6}</option>
+									<option value="7">{lang renren:security_question_7}</option>
+					</select>
+			
+					</li>
+					<li class="clearfix buttons"><span style="display: none" id="answernew"><span style="margin-left:36px;">{lang renren:security_answer}:</span><input type="text"  name="answernew"></label></span>
+					</li>
+					<li class="clearfix buttons">
+					<button style="margin-left:100px;" type="submit" name="discuz_bind" value="true" tabindex="100"><span>{lang renren:rr_bind}</span></button>           
+					</li>
+                </ul>
+				</form>
+            </div>
+            <script type="text/javascript">
+				(function(){
+					
+					var cons = {
+						currentTab : '1',
+							 aTag1 : document.getElementById('1'),
+							 aTag2 : document.getElementById('2')
+					};
+					var tabs = document.getElementById('tabs');
+					tabs.onclick = function(e){
+						var e = e || window.event;
+						var tab = e.target || e.srcElement;
+						
+						if(tab.id == cons.currentTab)
+							return;
+						else{
+							cons.currentTab = tab.id;
+							showIt(cons.currentTab);
+						}
+					};
+					
+					function showIt(tabId){
+						if(tabId == '1'){
+							var tab = document.getElementById('bindExistedId-ul');
+							tab.style.display = 'none';							
+							var willShowTab = document.getElementById('completeId-ul');
+							willShowTab.style.display = 'block';							
+							cons.aTag1.style.backgroundColor = '#FFF';
+							cons.aTag1.style.borderBottomColor = '#FFFFFF';							
+							cons.aTag2.style.backgroundColor = '#e0ecf7';
+							cons.aTag2.style.borderBottomColor = '#c9deec';
+							
+						}
+						if(tabId == '2'){
+							var tab = document.getElementById('completeId-ul');
+							tab.style.display = 'none';
+							var willShowTab = document.getElementById('bindExistedId-ul')
+							willShowTab.style.display = 'block';
+							cons.aTag1.style.backgroundColor = '#e0ecf7';
+							cons.aTag1.style.borderBottomColor = '#c9deec';							
+							cons.aTag2.style.backgroundColor = '#FFF';
+							cons.aTag2.style.borderBottomColor = '#FFF';
+						}
+					}
+					
+				})();
+							
+				
+            </script>
+		<!--{elseif $isbind[tag]==2}-->
+			
+			<div class="blr" style="width: 450px;">
+              <h3 style="background: none no-repeat scroll 0% 0% rgb(5, 91, 174); cursor: move;" class="flb" id="fctrl_renren"> <em id="returnmessage_LR573" fwin="renren"></em> <span><a href="javascript:;" class="flbc" onclick="hideWindow('renren', 0, 1);" title="{lang renren:close}">{lang renren:close}</a></span>
+                <p style="color:#fff;width:200px;">{lang renren:rr_dz_user}</p>
+              </h3>
+              <div style="padding: 10px 20px;">
+                <p>{lang renren:log_rbind}</p>
+				<p>{lang renren:log_rbindname}:$username</p>
+				<form method="post" action="plugin.php?id=renren:connect">
+					<input type="hidden" name="formhash" value="{FORMHASH}" />
+					<div style="text-align:center;"><button class="pn pnc" type="submit" name="discuz_rrbind" value="true" tabindex="100"><span>{lang renren:rr_bind}</span></button></div>
+					
+                
+				</form>
+            </div>
+
+		<!--{/if}-->
+		  </div>
+          
+	<!--{/if}-->
+<!--{/if}-->
+<!--{template common/footer}-->

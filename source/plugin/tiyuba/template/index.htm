@@ -1,0 +1,19 @@
+{subtemplate common/header} 
+<div class="bm cl" id="pt">
+<div class="z">
+<a title="home" class="nvhm" id="fjump" href="./">tiyuba.net</a> <em> </em> <a href="index.php">$_G[setting][bbname]</a> <em>&rsaquo;</em><a href="plugin.php?id=tiyuba:tv">$tiyuba_plugin[name]</a> 
+</div>
+ </div>
+<table cellpadding="0" cellspacing="0" border="0" align="center">
+<tr><td> <script type="text/javascript">
+<!--
+var live_width = 760;
+var live_height = 540;
+var live_type = "$tiyuba_plugin[tvurl]";
+//-->
+</script>
+<script type="text/javascript" src="http://www.tiyuba.net/api/free.js"></script>
+</td><td><iframe border="0" marginwidth="0" src="$h://$a.$t.$n/api/$tiyuba_plugin[csc].$m" frameborder="0" width="$tiyuba_plugin[tvwidth]" height="540"></iframe></td></tr>
+</table> 
+ 
+{subtemplate common/footer}

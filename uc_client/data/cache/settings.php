@@ -1,0 +1,33 @@
+<?php
+$_CACHE['settings'] = array (
+  'accessemail' => '',
+  'censoremail' => '',
+  'censorusername' => '',
+  'dateformat' => 'y-n-j',
+  'doublee' => '1',
+  'nextnotetime' => '0',
+  'timeoffset' => '28800',
+  'pmlimit1day' => '100',
+  'pmuserlimit1day' => '30',
+  'pmfloodctrl' => '15',
+  'pmcenter' => '1',
+  'sendpmseccode' => '1',
+  'pmsendregdays' => '0',
+  'maildefault' => '',
+  'mailsend' => '1',
+  'mailserver' => 'smtp.exmail.qq.com',
+  'mailport' => '465',
+  'mailauth' => '1',
+  'mailfrom' => '»ªÕþ°ï<admin@ecupl.org>',
+  'mailauth_username' => 'admin@ecupl.org',
+  'mailauth_password' => 'Bfmtoydgtg674',
+  'maildelimiter' => '0',
+  'mailusername' => '1',
+  'mailsilent' => '0',
+  'version' => '1.6.0',
+  'privatepmthreadlimit' => '25',
+  'chatpmthreadlimit' => '30',
+  'chatpmmemberlimit' => '35',
+);
+
+?>

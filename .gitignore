@@ -1,0 +1,6 @@
+.DS_Store
+/config/config_global.php
+/config/config_ucenter.php
+/data/
+/sitemap_*
+/uc_server/data/

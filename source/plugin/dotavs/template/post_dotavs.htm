@@ -1,0 +1,53 @@
+<!--{block return}-->
+<div class="exfm cl">
+	<div class="sadd z">
+		<dl>
+			<dt><label for="gametime">游戏开局：</label></dt>
+			<dd class="hasd cl">
+				<input type="text" name="gametime" id="gametime" class="px" onclick="showcalendar(event, this, true)" autocomplete="off" value="$dotavs[gametime]" tabindex="1" />
+				<a href="javascript:;" class="dpbtn" onclick="showselect(this, 'gametime')">^</a>
+			</dd>
+			<dt><label for="polltime">投票结束：</label></dt>
+			<dd class="hasd cl">
+				<input type="text" name="polltime" id="polltime" class="px" onclick="showcalendar(event, this, true)" autocomplete="off" value="$dotavs[polltime]" tabindex="1" />
+				<a href="javascript:;" class="dpbtn" onclick="showselect(this, 'polltime')">^</a>
+			</dd>		 
+			<!--<dt><label for="maxgamers">游戏人数（偶数）：</label></dt>
+			<dd>
+				<p><input type="text" name="maxgamers" id="maxgamers" class="px" value="$dotavs[maxgamers]" tabindex="1" /></p>
+			</dd> -->
+		</dl>
+	</div>
+	<div class="sadd z">
+		<dl>
+			<dt><label for="dotav">DotA值(规划中)：</label></dt>
+			<dd>
+				<p><input type="text" name="dotav" id="dotav" class="px" value="$dotavs[dotav]" tabindex="1" /></p>
+			</dd>
+			<!-- <dt><label for="attendtime">报名结束时间：</label></dt>
+			<dd class="hasd cl">
+				<input type="text" name="attendtime" id="attendtime" class="px" onclick="showcalendar(event, this, true)" autocomplete="off" value="$dotavs[attendtime]" tabindex="1" />
+				<a href="javascript:;" class="dpbtn" onclick="showselect(this, 'attendtime')">^</a>
+			</dd> -->
+		</dl>
+
+	</div>
+
+
+</div>
+
+<script type="text/javascript" reload="1">
+function validateextra() {
+	if($('postform').affirmpoint.value == '') {
+		showDialog('{lang post_debate_message_1}', 'alert', '', function () { $('postform').affirmpoint.focus() });
+		return false;
+	}
+	if($('postform').negapoint.value == '') {
+		showDialog('{lang post_debate_message_2}', 'alert', '', function () { $('postform').negapoint.focus() });
+		return false;
+	}
+	return true;
+}
+</script>
+
+<!--{/block}-->

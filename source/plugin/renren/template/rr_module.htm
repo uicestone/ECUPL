@@ -1,0 +1,53 @@
+{eval
+function tpl_renren_global_login_extra() {
+		global $_G;
+	}
+<!--{block return}-->
+	<div class="fastlg_fm y" style="">
+		<p><a  href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" onclick="seturlcookie1()"><img src="source/plugin/renren/template/image/rr_login.png" class="vm" alt="{lang renren:rr_login}" /></a></p>
+		<p class="hm xg1" style="padding-top: 2px;">{lang renren:rr_login_tip}</p>
+	</div>
+	<script language="javascript" type="text/javascript">
+		function seturlcookie1()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+<!--{/block}-->
+<!--{eval return $return;}-->
+{eval
+}
+
+function tpl_renren_global_usernav_extra1() {
+		global $_G;
+}
+<!--{block return}-->
+	<span class="pipe">|</span><a href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" onclick="seturlcookie2()"><img src="source/plugin/renren/template/image/rr_login.png" class="vm" alt="{lang renren:rr_login}" /></a>
+	<script language="javascript" type="text/javascript">
+		function seturlcookie2()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+<!--{/block}-->
+<!--{eval return $return;}-->
+{eval
+}
+
+function tpl_renren_login_bar() {
+global $_G;
+}
+<!--{block return}-->
+	<a href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" onclick="seturlcookie3()"><img src="source/plugin/renren/template/image/rr_login.png" class="vm" alt="{lang renren:rr_login}" /></a>
+	<script language="javascript" type="text/javascript">
+		function seturlcookie3()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+<!--{/block}-->
+<!--{eval return $return;}-->
+{eval
+}
+
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2]]></item>
+	<item id="Time"><![CDATA[2011-07-11 00:00]]></item>
+	<item id="From"><![CDATA[¿¼ÊÔ¶àexamore (http://www.examore.com/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[¿¼ÊÔÃ¨]]></item>
+			<item id="identifier"><![CDATA[examore]]></item>
+			<item id="description"><![CDATA[¡¤µÚÒ»´ÎÊ¹ÓÃ±¾²å¼þ£¬Çë×ÐÏ¸ÔÄ¶Á¡¶Examore¿¼ÊÔÃ¨²å¼þÊ¹ÓÃÐ­Òé¡·
+¡¤Èç¹ûÄú»¹Ã»ÓÐÌá½»¿ªÍ¨ÔÚÏß¿¼ÊÔ·þÎñ¹¦ÄÜµÄÉêÇë£¬Çë°´ÕÕÌáÊ¾½øÐÐÉêÇë
+¡¤Èç¹û·¢ÏÖµ±Ç°°æ±¾ÒÑ¾­²»ÊÇ×îÐÂ°æ±¾ÁË£¬Çë¼°Ê±ÏÂÔØ°²×°×îÐÂ°æ±¾µÄ²å¼þ£¬ÒÔÃâÓ°Ïì³ÌÐòÕý³£ÔËÐÐ]]></item>
+			<item id="datatables"><![CDATA[examore]]></item>
+			<item id="directory"><![CDATA[examore/]]></item>
+			<item id="copyright"><![CDATA[¿¼ÊÔ¶àwww.examore.com]]></item>
+			<item id="version"><![CDATA[1.3.110711]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[admin]]></item>
+					<item id="menu"><![CDATA[ÏµÍ³]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[1]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[index]]></item>
+					<item id="menu"><![CDATA[¿¼ÊÔÃ¨]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[5]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2]]></item>
+		<item id="installfile"><![CDATA[install.php]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[¿¼ÊÔÈ¨ÏÞ]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[examlevel]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[1=×¢²á»áÔ±
+0=ÈÎºÎÈË]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[¿¼³¡¿ª·Å]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[examopen]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+</root>

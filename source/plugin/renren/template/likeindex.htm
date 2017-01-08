@@ -1,0 +1,29 @@
+<!--{block return}-->
+<script type="text/javascript" >
+function insertAfter(newEl, targetEl)
+{
+	var parentEl = targetEl.parentNode;
+	if(parentEl.lastChild == targetEl)
+	{
+		parentEl.appendChild(newEl);
+	}else
+	{
+		parentEl.insertBefore(newEl,targetEl.nextSibling);
+	}
+} 
+	var chart = document.getElementById("chart");
+	var	inlike = chart.getElementsByTagName("p");
+	var long = inlike.length; 
+	var div = document.createElement("div");
+
+	div.style.cssFloat = 'left';
+	div.style.styleFloat ='left';
+	div.style.marginRight = '0px';
+	div.style.marginTop = '0px';
+	div.style.width = '70px';
+	inlike = inlike[long-1];
+	div.innerHTML='<iframe scrolling="no" frameborder="0" src="http://www.connect.renren.com/like?url=http%3A%2F%2Fpage.renren.com%2F$_G[cache][plugin][renren][rr_homeid]&showfaces=false" style="width: 70px; height: 22px; float: right; border: 0pt none; margin-left: 5px;  margin-top: -3px;position: relative;" allowTransparency="true"></iframe>';
+	inlike.insertBefore(div,inlike.firstChild);
+	//insertAfter(div,inlike); 
+</script>
+<!--{/block}-->

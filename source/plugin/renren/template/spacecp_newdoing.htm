@@ -1,0 +1,45 @@
+<!--{block return}-->
+<script type="text/javascript">
+function rrcheck() {
+	var rrfeedbox = document.getElementById("rrfeed_box");
+	var rrfeed = document.getElementById("rrfeed");
+	if(rrfeedbox.checked){
+		rrfeed.value=1;
+	}
+	else
+	{
+		rrfeed.value=0;
+	}
+}
+var form1=document.getElementById("mood_addform");
+var tmpObj;
+tmpObj=document.createElement("div");
+tmpObj.innerHTML="<input type='hidden' id='rrfeed' name='rrfeed' <!--{if $iffeed[3]}-->value='1'<!--{else}-->value='0'<!--{/if}--> />"
+form1.appendChild(tmpObj);
+</script>
+<!--{if !$perm}-->
+<script type="text/javascript">
+function rrpermcheck() {
+	var rrfeedbox = document.getElementById("rrfeed_box");
+	var comment = document.getElementById('rrfeed_a');
+	var rrfeed = document.getElementById("rrfeed");
+	if(rrfeedbox.checked){
+		
+		rrfeed.value=1;
+		window.open(comment.href);
+	}
+	else
+	{
+		rrfeed.value=0;
+	}
+}
+</script>
+<!--{/if}-->
+	<div class="mbn">
+	<table><tr><td style="text-align:left;vertical-align:middle;">
+	<!--{if !$perm}-->
+	<a id="rrfeed_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=status_update&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a><!--{/if}--><input type="checkbox" id="rrfeed_box" name="rrfeed_box" class="" value="1" style="margin-left: 2px;padding-left: 0;"<!--{if $iffeed[3]}--> checked="checked"<!--{/if}--><!--{if !$perm}--> onclick="rrpermcheck();"<!--{else}-->onclick="rrcheck();"<!--{/if}--> /><label for="rrfeed_box" Style="position: relative;top:-2px;margin-left: 2px;">{lang renren:rr_status_feedthread}</label></td><td style="text-align:left;vertical-align:middle;">
+	<img    src="source/plugin/renren/template/image/rr.png" /></td></tr></table>
+	</div>
+
+<!--{/block}-->

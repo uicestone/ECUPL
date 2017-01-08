@@ -1,0 +1,95 @@
+<!--{block return}-->
+<div class="ts" style="text-align:center;">本次DOTA竞技
+<!--{if $dotavs[status]==1}-->集结中！<br><br>游戏开局时间：$dotavs[gametime]
+<!--{elseif $dotavs[status]==2}-->投票中！
+<!--{elseif $dotavs[status] == 3}-->
+已经结束！<br><br>
+	<!--{if $dotavs[redscore]>$dotavs[bluescore]}-->
+		<span style="color:#F04700;font-size:25px;">天灾  胜</span>
+	<!--{elseif $dotavs[redscore]<$dotavs[bluescore]}-->
+		<span style="color:#0092C5;font-size:25px;">近卫  胜</span>
+	<!--{else}-->
+		<span style="color:#CCC;font-size:25px;">本局为流局</span>
+	<!--{/if}-->
+<!--{/if}--></div>
+<!-- <table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_$post[pid]">$post[message]</td></tr></table>
+ -->
+<!--{if $dotavs[status]==1}-->
+<div style="text-align:center;">
+<button id="attend" onclick="showWindow('login', 'plugin.php?id=dotavs:votepoll&uid=$_G['uid']&tid=$tid&action=0');return false;" class="pn" style="width:180px;height:40px;font-size:20px;" ><span>加入</span></button>
+</div>
+<!--{/if}-->
+<div style="text-align:center;margin-top:10px;">本次比赛需$dotavs['maxgamers']人，人满自动随机分组。赛后投票判断胜负，投满6票决胜，胜方每人奖励dota值20分</div>
+
+<!--{loop $dotavs['attended'] $user}-->
+<ul class="ml mls cl" style="height:75px;">
+
+    <li style="float:left;">
+        <a title="$user[author]" target="_blank" href="home.php?mod=space&uid=$user[uid]" class="avt">$user[avatar]</a>
+        <p><a href="home.php?mod=space&uid=$user[uid]">$user[username]</a></p>
+    </li>
+</ul>
+<!--{/if}-->
+<div class="ds">
+	<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="si_1">
+				<div class="point">
+					<strong>天灾($dotavs[redscore])</strong>
+				</div>
+			</td>
+			<td class="sc_1">
+				<div class="point_chart">
+					<div class="chart" style="height: {$dotavs['redheight']}%;" title="天灾：$dotavs[redscore]票"></div>
+				</div>
+			</td>
+			<th><div></div></th>
+			<td class="sc_2">
+				<div class="point_chart">
+					<div class="chart" style="height: {$dotavs[blueheight]}%;" title="近卫：$dotavs[bluescore]票"></div>
+				</div>
+			</td>
+			<td class="si_2">
+				<div class="point">
+					<strong>近卫 ($dotavs[bluescore])</strong>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="dr">
+	<table cellspacing="0" cellpadding="0">
+		<!--{if !$_G['forum_thread']['is_archived']}-->
+		<tr>
+			<td class="sr_1 pns">
+				<button id="redbutton" onclick="showWindow('login', 'plugin.php?id=dotavs:votepoll&uid=$_G['uid']&tid=$tid&action=1');return false;" class="pn"><span>天灾获胜</span></button>
+				<!--{if $dotavs['status']!=1}-->
+				<ul class="ml mls cl">
+					<!--{loop $dotavs['redside'] $user}-->
+					<li style="float: right;">
+						<a title="$user[author]" target="_blank" href="home.php?mod=space&uid=$user[uid]" class="avt">$user[avatar]</a>
+						<p><a href="home.php?mod=space&uid=$user[uid]">$user[username]</a></p>
+					</li>
+					<!--{/if}-->
+				</ul>
+                <!--{/if}-->
+			</td>
+			<th>&nbsp;</th>
+			<td class="sr_2 pns">
+				<button id="bluebutton" onclick="showWindow('login', 'plugin.php?id=dotavs:votepoll&uid=$_G['uid']&tid=$tid&action=2');return false;" class="pn"><span>近卫获胜</span></button>
+                <!--{if $dotavs['status']!=1}-->
+				<ul class="ml mls cl">
+					<!--{loop $dotavs['blueside'] $user}-->
+					<li>
+						<a title="$user[author]" target="_blank" href="home.php?mod=space&uid=$user[uid]" class="avt">$user[avatar]</a>
+						<p><a href="home.php?mod=space&uid=$user[uid]">$user[username]</a></p>
+					</li>
+					<!--{/if}-->
+				</ul>
+                <!--{/if}-->
+			</td>
+		</tr>
+		<!--{/if}-->
+	</table>
+</div>
+<!--{/block}-->

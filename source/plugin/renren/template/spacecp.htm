@@ -1,0 +1,210 @@
+<script type="text/javascript">
+function bind() {
+	var renren_bind = document.getElementById('renren_bind');
+	renren_bind.submit();
+}
+</script>
+<!--{if $_G['cache']['plugin']['renren']['rr_feed']}-->
+<script type="text/javascript">
+function rrfeedpermcheck(id) {
+	var rrfeedbox = document.getElementById(id);
+	var comment = document.getElementById('rrfeednew_a');
+	if(rrfeedbox.checked){
+		window.open(comment.href);
+	}
+}
+function rrblogpermcheck(id) {
+	var rrblogbox = document.getElementById(id);
+	var comment = document.getElementById('rrblognew_a');
+	if(rrblogbox.checked){
+		window.open(comment.href);
+	}
+}
+function rrstatuspermcheck(id) {
+	var rrstatusbox = document.getElementById(id);
+	var comment = document.getElementById('rrstatusnew_a');
+	if(rrstatusbox.checked){
+		window.open(comment.href);
+	}
+}
+function rrsharepermcheck(id) {
+	var rrsharebox = document.getElementById(id);
+	var comment = document.getElementById('rrsharenew_a');
+	if(rrsharebox.checked){
+		window.open(comment.href);
+	}
+}
+
+</script>
+<!--{/if}-->
+<!--{if $_G[uid]}-->
+	<!--{if !$isbind['bing']}-->
+	<script language="javascript" type="text/javascript">
+		function seturlcookie4()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+	<div class="mtw bm2 cl">
+
+		<div class="bm2_b bw0 hm" style="padding-top: 70px;">
+		<table cellspacing="0" cellpadding="0" class="tfm">
+		<TR><td align="middle">
+			<a href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:bind" onclick="seturlcookie4()"><img src="source/plugin/renren/template/image/rr_bind.bmp" class="vm" alt="{lang renren:rr_login}" /></a>
+			<p class="mtn xg1">{lang renren:connect_config_bind}</p>
+		</td><td align="left">
+			<a Style="color:#0082CB;" target="_blank" href="http://reg.renren.com/xn6245.do?ss=17059&rt=1">{lang renren:rr_reg}</a></td></tr></table>
+		</div>
+		
+		<div class="bm2_b bm2_b_y bw0">
+			<dl class="xld">
+				<h2 class="xi1 xs2">{lang renren:connect_config_title}</h2>
+				<dt>{lang renren:connect_config_desc_title1}</dt>
+				<dd class="xg1">{lang renren:connect_config_desc_content1}</dd>
+				<dt>{lang renren:connect_config_desc_title2}</dt>
+				<dd class="xg1">{lang renren:connect_config_desc_content2}</dd>
+				<dt>{lang renren:connect_config_desc_title3}</dt>
+				<dd class="xg1">{lang renren:connect_config_desc_content3}</dd>
+			</dl>
+		</div>
+	</div>
+
+	<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=renren:spacecp" id="renren_bind" >
+		<table cellspacing="0" cellpadding="0" class="tfm">
+			
+			<tr>
+				<td>
+					<div class="c">
+						<input type="hidden" name="formhash" value="{FORMHASH}" />
+						
+					</div>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<!--{else}-->
+	<div class="bm bw0">
+	<ul class="tb cl">
+		<li <!--{if $_G['gp_rr']==unbind|| $_G['gp_rr']==''}-->class="a"<!--{/if}-->><a href="home.php?mod=spacecp&ac=plugin&id=renren:spacecp&rr=unbind">{lang renren:rr_unbind}</a></li>
+		<li <!--{if $_G['gp_rr']==upava}-->class="a"<!--{/if}-->><a href="home.php?mod=spacecp&ac=plugin&id=renren:spacecp&rr=upava">{lang renren:bind_avsync}</a></li>
+	</ul>
+		<!--{if $_G['gp_rr']=='unbind'||$_G['gp_rr']==''}-->
+<!--{if $_G[renren]}-->
+		<script type="text/javascript">
+			function renren_unbind() {
+				var rr_unbind = document.getElementById('renren_unbind');
+				rr_unbind.submit();
+			}
+		</script>
+		<link href="source/plugin/renren/template/renren.css" rel="stylesheet" type="text/css" />
+	<form id="renren_unbind" method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=renren:spacecp">
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<input type="hidden" name="renren_unbind" value="1" />
+	</form>
+
+	<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=renren:spacecp">
+	<input type="hidden" name="formhash" value="{FORMHASH}" />
+	<div class="">
+      <div class="rr_content">
+	  <br>
+		
+			<h1 class="wx" Style=""><span>{lang renren:renren_have_bind}</span><a target="_blank" class="a" href="http://www.renren.com/profile.do?id={$rr_uid}">{$rr_name}</a><a  href="javascript:void(0)" onclick="renren_unbind()"><span>{lang renren:rr_unbind}</span></a></h1>
+	
+
+        <ul>
+		<!--{if $iffeed&&($_G['cache']['plugin']['renren']['rr_feednew']||$_G['cache']['plugin']['renren']['rr_feedre']||$_G['cache']['plugin']['renren']['rr_blognew']||$_G['cache']['plugin']['renren']['rr_statusnew']||$_G['cache']['plugin']['renren']['rr_sharenew']||$_G['cache']['plugin']['renren']['rr_articalnew'])}-->
+			<a id="rrfeednew_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=publish_feed&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a>
+	<a id="rrblognew_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=publish_blog&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a>
+	<a id="rrstatusnew_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=status_update&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a>
+	<a id="rrsharenew_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=publish_share&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a>
+          <p class="title">{lang renren:renren_feedconf}</p>
+          <li class="firstLi">
+<!--{if $_G['cache']['plugin']['renren']['rr_feednew']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input class="firstInput" id="feednew" name="feednew" type="checkbox" value="1" <!--{if $feed_s[0]}--> checked="checked"<!--{/if}--> onclick="rrfeedpermcheck(this.id);" /><label for="feednew" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_post_spacecp}</label></div>
+<!--{/if}-->
+<!--{if $_G['cache']['plugin']['renren']['rr_feedre']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input id="feedre" name="feedre" type="checkbox" value="1"<!--{if $feed_s[1]}--> checked="checked"<!--{/if}--> onclick="rrfeedpermcheck(this.id);"/><label for="feedre" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_reply_spacecp}</label></div>
+<!--{/if}-->
+<!--{if $_G['cache']['plugin']['renren']['rr_blognew']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input id="blognew" name="blognew" type="checkbox" value="1"<!--{if $feed_s[2]}--> checked="checked"<!--{/if}--> onclick="rrblogpermcheck(this.id);"/><label for="blognew" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_post_blog}</label></div>
+<!--{/if}-->
+		  </li>
+          <li>
+<!--{if $_G['cache']['plugin']['renren']['rr_statusnew']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input  id="statusnew" class="firstInput" name="statusnew" type="checkbox" value="1"<!--{if $feed_s[3]}--> checked="checked"<!--{/if}--> onclick="rrstatuspermcheck(this.id);"/><label for="statusnew" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_record}</label></div>
+<!--{/if}-->
+<!--{if $_G['cache']['plugin']['renren']['rr_sharenew']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input id="sharenew" name="sharenew" type="checkbox" value="1"<!--{if $feed_s[4]}--> checked="checked"<!--{/if}--> onclick="rrsharepermcheck(this.id);"/><label for="sharenew" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_add_share}</label></div>
+<!--{/if}-->
+<!--{if $_G['cache']['plugin']['renren']['rr_articalnew']}-->
+		  <div Style="float: left;width: 150px;">
+		  <input id="articalnew" name="articalnew" type="checkbox" value="1"<!--{if $feed_s[5]}--> checked="checked"<!--{/if}--> onclick="rrblogpermcheck(this.id);"/><label for="articalnew" style="position: relative;top:-2px;margin-left: 2px;">{lang renren:renren_gateway_artical}</label></div>
+<!--{/if}-->
+		  </li>  
+		  <!--{/if}-->
+          <li><span class="setWord">{lang renren:renren_home_page_conf}</span>
+            <select id="RadioGroup1" name="RadioGroup1">
+              <option value="0" <!--{if $per == 0}--> selected="selected" <!--{/if}-->>{lang renren:rr_homen}</option>
+              <option value="1" <!--{if $per == 1}--> selected="selected" <!--{/if}-->>{lang renren:rr_homef}</option>
+              <option value="2" <!--{if $per == 2}--> selected="selected" <!--{/if}-->>{lang renren:rr_homea}</option>
+            </select>
+          </li>
+           <li><input class="saveButton" type="submit" name="renren_setper" id="renren_setper"  value="{lang renren:renren_save_set}"/></li>        
+        </ul>
+		
+      </div>
+    </div>
+	</form>
+	<!--{else}-->
+			<h2 class="wx">{lang renren:avsync_tip2}</h2>
+			<br>
+			<p><a  href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" onclick="seturlcookie1()"><img src="source/plugin/renren/template/image/rr_login.png" class="vm" alt="{lang renren:rr_login}" /></a></p>
+			<script language="javascript" type="text/javascript">
+		function seturlcookie1()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+		</table>
+<!--{/if}-->
+		<!--{elseif $_G['gp_rr']=='upava'}-->
+
+
+	<form method="post" autocomplete="off" action="home.php?mod=spacecp&ac=plugin&id=renren:spacecp">
+		<table cellspacing="0" cellpadding="0" class="tfm">
+			<!--{if $_G[renren]}-->
+			<caption>
+			<h2 class="wx">{lang renren:rr_av}</h2>
+			<!--<p>{lang renren:avsync_tip1}</p>-->
+			</caption>
+			<tr>
+				<td>
+					<img src="$headurl" />
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" name="formhash" value="{FORMHASH}" />
+		<button type="submit" name="renren_avatar_submit" id="renren_avatar_submit" value="true" class="pn pnp" /><strong>{lang renren:bind_avsync}</strong></button>
+			<!--{else}-->
+			<h2 class="wx">{lang renren:avsync_tip2}</h2>
+			<br>
+			<p><a  href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code<!--{if $_G['cache']['plugin']['renren']['rr_permfeed']}-->&scope=publish_feed,publish_blog,status_update,publish_share<!--{/if}-->&redirect_uri=$_G['siteurl']plugin.php?id=renren:auth" onclick="seturlcookie1()"><img src="source/plugin/renren/template/image/rr_login.png" class="vm" alt="{lang renren:rr_login}" /></a></p>
+			<script language="javascript" type="text/javascript">
+		function seturlcookie1()
+		{
+			document.cookie = "old_url_to_renren=" + escape(document.URL) + "; "; 
+		}
+	</script>
+		</table>
+			<!--{/if}-->
+</form>
+	
+		<!--{/if}-->
+	</div>	
+	<!--{/if}-->
+<!--{/if}-->

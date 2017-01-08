@@ -1,0 +1,41 @@
+<!--{block return}-->
+
+<!--{if !$_G['uid'] && ( !isset($_G['gp_mod']) || !in_array($_G['gp_mod'], array('logging', 'register') ) ) && !$_G['cache']['plugin']['renren']['rr_index'] && $_G['gp_action']!='logout'}-->
+
+<!--{elseif $isbind['bing'] && $_G['gp_action']!='logout'}-->
+	<!--{if $_G['renren']}-->
+<script type="text/javascript" language="javascript">
+	function doClick(obj) {
+		if(document.all) {
+			obj.click();
+		} else {
+			var evt = document.createEvent("MouseEvents");
+			evt.initEvent("click", true, true);
+			obj.dispatchEvent(evt);
+		}
+	}
+	function rr_logout(){
+		var rrlogout = document.getElementById("rr_logout");
+		rrlogout.onclick = '';
+		doClick(rrlogout);
+	}
+	var node = document.getElementById("usersetup");
+	if(node) {
+		var insertedNode = document.createElement("span");
+		insertedNode.innerHTML = '<a id="rr_logout" ><img style="padding-top:2px" width="14px" height="14px"    src="source/plugin/renren/template/image/rr.png" onerror="this.onerror=null;this.src=\'source/plugin/renren/template/image/rr.png\'" style="vertical-align:text-bottom" /></a>';
+		node.parentNode.insertBefore(insertedNode, node.previousSibling);
+	}
+</script>
+	<!--{else}-->
+<script type="text/javascript" language="javascript">
+	//var node = document.getElementById("usersetup");
+	//if(node) {
+	//	var insertedNode = document.createElement("span");
+	//	insertedNode.innerHTML = '<a title="{lang renren:rr_login}" href="javascript:rr_login()"><img src="source/plugin/renren/template/image/rr_unlogin.png" onerror="this.onerror=null;this.src=\'source/plugin/renren/template/image/rr_unlogin.png\'" style="vertical-align:text-bottom" /></a>';
+	//	node.parentNode.insertBefore(insertedNode, node.previousSibling);
+	//}
+</script>
+	<!--{/if}-->
+<!--{else}-->
+<!--{/if}-->
+<!--{/block}-->

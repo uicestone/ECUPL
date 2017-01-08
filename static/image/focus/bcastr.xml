@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+	<channel>
+		
+		<item>
+			<link>http://www.ecupl.org/thread-1140-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/211918abtcs2sz3h62cglt.jpg</image>
+			
+		</item>
+
+		<item>
+			<link>http://www.ecupl.org/thread-1139-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/211824fzni3gtxxtxem3nk.jpg</image>
+			
+		</item>
+
+		<item>
+			<link>http://www.ecupl.org/thread-1138-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/2117275msrukb44bsmeomb.jpg</image>
+			
+		</item>
+
+		<item>
+			<link>http://www.ecupl.org/thread-1137-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/211657o1idejm1etzmaimi.jpg</image>
+			
+		</item>
+
+		<item>
+			<link>http://www.ecupl.org/thread-1136-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/211437zj3diid4i23439h3.jpg</image>
+			
+		</item>
+
+		<item>
+			<link>http://www.ecupl.org/thread-1135-1-1.html</link>
+			<image>http://www.ecupl.org/data/attachment/forum/201101/22/211623adtsmekelbw5ehwz.jpg</image>
+			<title> </title>
+		</item>
+
+		
+	</channel>
+	<config>	
+		<roundCorner>0</roundCorner>
+		<autoPlayTime>8</autoPlayTime>
+		<isHeightQuality>false</isHeightQuality>
+		<blendMode>normal</blendMode>
+		<transDuration>1</transDuration>
+		<windowOpen>_self</windowOpen>
+		<btnSetMargin>auto 5 5 auto</btnSetMargin>
+		<btnDistance>20</btnDistance>
+		<titleBgColor>0xff6600</titleBgColor>
+		<titleTextColor>0xffffff</titleTextColor>
+		<titleBgAlpha>.75</titleBgAlpha>
+		<titleMoveDuration>1</titleMoveDuration>
+		<btnAlpha>.7</btnAlpha>	
+		<btnTextColor>0xffffff</btnTextColor>	
+		<btnDefaultColor>0x1B3433</btnDefaultColor>
+		<btnHoverColor>0xff9900</btnHoverColor>
+		<btnFocusColor>0xff6600</btnFocusColor>
+		<changImageMode>click</changImageMode>
+		<isShowBtn>true</isShowBtn>
+		<isShowTitle>true</isShowTitle>
+		<scaleMode>noBorder</scaleMode>
+		<transform>blur</transform>
+		<isShowAbout>true</isShowAbout>
+		<titleFont>微软雅黑</titleFont>
+	</config>
+</data>
+        

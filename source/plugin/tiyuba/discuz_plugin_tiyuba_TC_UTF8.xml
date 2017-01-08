@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2]]></item>
+	<item id="Time"><![CDATA[2011-03-18 21:26]]></item>
+	<item id="From"><![CDATA[體育吧論壇 (http://bbs.tiyuba.net/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[體育吧電視X]]></item>
+			<item id="identifier"><![CDATA[tiyuba]]></item>
+			<item id="description"><![CDATA[體育吧的介紹www.tiyuba.net]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[tiyuba/]]></item>
+			<item id="copyright"><![CDATA[For Discuz X1 Modified by www.tiyuba.net]]></item>
+			<item id="version"><![CDATA[V1.3 Full]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[tv]]></item>
+					<item id="menu"><![CDATA[網絡電視]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[1]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[22]]></item>
+				<item id="title"><![CDATA[電視關閉通知]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[message]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[程式正在調整中，請稍微訪問]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[默認電視臺]]></item>
+				<item id="description"><![CDATA[默認為東方電視劇，可選擇其他臺]]></item>
+				<item id="variable"><![CDATA[tvurl]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[default]]></item>
+				<item id="extra"><![CDATA[default = 默认电视台
+dfdy = 东方电影频道
+cctv1 = CCTV-1
+cctv5 = CCTV-5
+hnws = 湖南卫视
+fhws = 凤凰卫视
+dfws = 东方卫视
+shty = 上海体育
+tvb = 翡翠台
+dycj = 第一财经]]></item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[46]]></item>
+				<item id="title"><![CDATA[節目單寬度]]></item>
+				<item id="description"><![CDATA[請輸入節目單的寬度 如：200]]></item>
+				<item id="variable"><![CDATA[tvwidth]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[200]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[45]]></item>
+				<item id="title"><![CDATA[是否關閉節目單]]></item>
+				<item id="description"><![CDATA[請選擇是否要關閉節目單，默認為開啟]]></item>
+				<item id="variable"><![CDATA[csc]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[sc]]></item>
+				<item id="extra"><![CDATA[sc = 開啟節目單
+c = 關閉節目單]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[40]]></item>
+				<item id="title"><![CDATA[默認語言]]></item>
+				<item id="description"><![CDATA[請選擇顯示語言]]></item>
+				<item id="variable"><![CDATA[language]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[bigtvlist]]></item>
+				<item id="extra"><![CDATA[tvlist = 簡體
+bigtvlist = 繁體]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[30]]></item>
+				<item id="title"><![CDATA[是否允許遊客進入]]></item>
+				<item id="description"><![CDATA[選項“是”允許遊客進入觀看]]></item>
+				<item id="variable"><![CDATA[guest]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[20]]></item>
+				<item id="title"><![CDATA[是否關閉論壇電視]]></item>
+				<item id="description"><![CDATA[選擇“是”則關閉電視功能]]></item>
+				<item id="variable"><![CDATA[close]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[電視名稱]]></item>
+				<item id="description"><![CDATA[此電視名稱將會在前臺顯示]]></item>
+				<item id="variable"><![CDATA[name]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[網絡電視]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+</root>

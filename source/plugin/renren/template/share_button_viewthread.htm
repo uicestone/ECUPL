@@ -1,0 +1,18 @@
+<!--{block return}-->
+<a href="" id="sharetorenren" title="" target="_blank" onclick="setTimeout('forstat()', 0);"><i><img src="source/plugin/renren/template/image/rr.png">{lang renren:share_to_renren}</i></a>
+         <img id="statimg" style="display:none;" />
+         <script type="text/javascript">
+		 var thisUrl="http://share.renren.com/share/buttonshare/post/4001?url="+encodeURIComponent("$url")+"&title=$rr_share_title"+"&content=$rr_share_content&pic=$img";
+				document.getElementById("sharetorenren").href=thisUrl;
+            function forstat(){
+                var statimg = document.getElementById("statimg");
+                statimg.src = "{$statImgSrc}" + "&random=" + Math.round(Math.random()*1000000);
+				
+            }
+            if(window.jQuery && jQuery.fn.lazyload){
+                jQuery(function(){
+                    document.getElementById("statimg").style.display = "none";
+                });
+            }
+         </script>
+<!--{/block}-->

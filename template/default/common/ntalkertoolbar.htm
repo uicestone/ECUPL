@@ -1,0 +1,51 @@
+<!--{if $im_imconfig[im_enable]==true}-->
+    <script language="javascript" type="text/javascript">
+		var siteMsgInfoArray=[];
+		<!--{if $_G[member][newprompt]}-->
+			siteMsgInfoArray.push({name:"{lang remind}",url:"{$_G[siteurl]}home.php?mod=space&do=notice",msgnumber:$_G[member][newprompt]});
+		<!--{elseif $_G[member][newpm]}-->
+			siteMsgInfoArray.push({name:"{lang pm_center}",url:"{$_G[siteurl]}home.php?mod=space&do=pm",msgnumber:$_G[member][newpm]});
+		<!--{/if}-->
+		var tbMenuMyApp =[];
+		<!--{if $_G['uid']}-->
+		    <!--{if !$my_userapp && $_G['my_menu']}-->
+				{eval $my_userapp = $_G['my_menu'];}
+		    <!--{elseif !$my_userapp}-->
+				{eval @include_once DISCUZ_ROOT.'./source/function/function_home.php'; getuserapp();$my_userapp = $_G['my_menu'];}
+		    <!--{/if}-->
+		{eval $appkey = 0;}
+		tbMenuMyApp.push({groupname:"&#31449;&#20869;&#24212;&#29992;",menuitems:[<!--{loop $my_userapp $myappdata}-->
+		 <!--{if $appkey<3}-->
+		 {title:"$myappdata['appname']",url:"{$_G[siteurl]}userapp.php?script=user&id=$myappdata['appid']&from=leftmenu",icon:"http://appicon.manyou.com/icons/$myappdata['appid']"},
+		 {eval $appkey++;}
+		 <!--{/if}-->
+		 <!--{/loop}-->]});
+		 tbMenuMyApp.push(
+		 	{
+		 		groupname:"&#31449;&#28857;&#21151;&#33021;",menuitems:[
+		 			{title:"{lang doing}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=doing&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/doing.gif"},
+		 			{title:"{lang album}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=album&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/album.gif"},
+		 			{title:"{lang blog}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=blog&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/blog.gif"},
+		 			{title:"{lang share}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=share&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/share.gif"},
+		 			{title:"{lang thread}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=thread&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/thread.gif"},
+		 			<!--{if $_G['setting']['groupstatus']}-->
+		 			{title:"{$_G[setting][navs][3][navname]}",url:"{$_G[siteurl]}group.php",icon:"{STATICURL}image/feed/group.gif"},
+		 			<!--{/if}-->
+		 			{title:"{lang activity}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=activity&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/activity.gif"},
+		 			{title:"{lang poll}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=poll&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/poll.gif"},
+		 			{title:"{lang reward}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=reward&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/reward.gif"},
+		 			{title:"{lang debate}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=debate&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/debate.gif"},
+		 			{title:"{lang favorite}",url:"{$_G[siteurl]}home.php?mod=space&amp;do=favorite&amp;fchannel=xmenum",icon:"{STATICURL}image/feed/favorite.gif"}
+		 		]
+		 	}
+		 );
+		<!--{/if}-->
+		var nt = nt || {};
+		nt.script = "http://{$im_imconfig[im_wdkresource_server]}/imfunction_utf8.js";
+		nt.siteid = "$im_imconfig[im_siteid]";
+		nt.uid = "$_G[uid]";
+		nt.uname = "$_G[username]";
+		nt.sid = "$_G[im_sid]";
+    </script>
+<script language="JavaScript" type="text/JavaScript" src="{$_G[siteurl]}{$ntalker_root}loader_ntalker.js"></script>
+<!--{/if}-->

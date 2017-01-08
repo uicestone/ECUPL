@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2]]></item>
+	<item id="Time"><![CDATA[2011-03-18 21:26]]></item>
+	<item id="From"><![CDATA[体育吧论坛 (http://bbs.tiyuba.net/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[体育吧电视X]]></item>
+			<item id="identifier"><![CDATA[tiyuba]]></item>
+			<item id="description"><![CDATA[体育吧,体育吧网络电视,是一款优秀的在线高清网络电视,无需安装插件,打开就看,与数字电视和有线电视同步直播,在线电视包括凤凰卫视系列,香港台,CCTV,卫视频道,地方台,体育台,台湾电视台,韩国电视台,SBS,MBC,KBS,日本电视台,欧美电视台,全球上千台的网络电视]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[tiyuba/]]></item>
+			<item id="copyright"><![CDATA[For Discuz X1 Modified by www.tiyuba.net]]></item>
+			<item id="version"><![CDATA[V1.3 Full]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[tv]]></item>
+					<item id="menu"><![CDATA[网络电视]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[1]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[22]]></item>
+				<item id="title"><![CDATA[电视关闭通知]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[message]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[本站正在调整中，特关闭体育吧电视直播功能！]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[默认电视台]]></item>
+				<item id="description"><![CDATA[默认为东方卫视，请选择您要默认的电视台]]></item>
+				<item id="variable"><![CDATA[tvurl]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[default]]></item>
+				<item id="extra"><![CDATA[default = 默认电视台
+dfdy = 东方电影频道
+cctv1 = CCTV-1
+cctv5 = CCTV-5
+hnws = 湖南卫视
+fhws = 凤凰卫视
+dfws = 东方卫视
+shty = 上海体育
+tvb = 翡翠台
+dycj = 第一财经]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[46]]></item>
+				<item id="title"><![CDATA[节目单宽度]]></item>
+				<item id="description"><![CDATA[请输入节目单的宽度 默认为：200]]></item>
+				<item id="variable"><![CDATA[tvwidth]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[200]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[45]]></item>
+				<item id="title"><![CDATA[是否关闭节目单]]></item>
+				<item id="description"><![CDATA[请选择是否要关闭节目单，默认为开启]]></item>
+				<item id="variable"><![CDATA[csc]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[sc]]></item>
+				<item id="extra"><![CDATA[sc = 开启节目单
+c = 关闭节目单]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[40]]></item>
+				<item id="title"><![CDATA[默认语言]]></item>
+				<item id="description"><![CDATA[请根据您的情况选择默认语言，如果您面向的是港台用户，就选择繁体吧]]></item>
+				<item id="variable"><![CDATA[language]]></item>
+				<item id="type"><![CDATA[select]]></item>
+				<item id="value"><![CDATA[tvlist]]></item>
+				<item id="extra"><![CDATA[tvlist = 简体
+bigtvlist = 繁体]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[30]]></item>
+				<item id="title"><![CDATA[是否允许游客进入]]></item>
+				<item id="description"><![CDATA[选择“是”允许游客进入体育吧网络电视]]></item>
+				<item id="variable"><![CDATA[guest]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[20]]></item>
+				<item id="title"><![CDATA[是否关闭论坛电视]]></item>
+				<item id="description"><![CDATA[选择“是”则关闭体育吧网络电视]]></item>
+				<item id="variable"><![CDATA[close]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[电视名称]]></item>
+				<item id="description"><![CDATA[请输入电视名称，此名称是在前台显示的]]></item>
+				<item id="variable"><![CDATA[name]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[网络电视]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+</root>

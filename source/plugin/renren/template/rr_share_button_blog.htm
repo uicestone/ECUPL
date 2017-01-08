@@ -1,0 +1,12 @@
+<!--{block return}-->
+<a href="" id="sharetorenren" title="" class="oshr" Style="background:url(source/plugin/renren/template/image/rr.png) no-repeat scroll 5px 50% #FFFFFF" target="_blank" onclick="setTimeout('forstat()', 0);">{lang renren:share_to_renren}</a>
+          <img id="statimg" style="display:none;"/>
+         <script type="text/javascript">
+		 var thisUrl="http://share.renren.com/share/buttonshare/post/4001?url="+encodeURIComponent("$subjectlink")+"&title=$rr_share_title"+"&content=$rr_share_content&pic=$img";
+			document.getElementById("sharetorenren").href=thisUrl;
+            function forstat(){
+                var statimg = document.getElementById("statimg");
+                statimg.src = "{$statImgSrc}" + "&random=" + Math.round(Math.random()*1000000);
+            }
+         </script>
+<!--{/block}-->

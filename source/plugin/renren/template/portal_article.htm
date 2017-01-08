@@ -1,0 +1,20 @@
+<!--{block return}-->
+<!--{if !$perm}-->
+<script type="text/javascript">
+function rrpermcheck() {
+	var rrfeedbox = document.getElementById("rrfeed");
+	var comment = document.getElementById('rrfeed_a');
+	if(rrfeedbox.checked){
+		window.open(comment.href);
+	}
+}
+</script>
+<!--{/if}-->
+	<p class="mbn">
+	<table><tr><td>
+	<!--{if !$perm}-->
+	<a id="rrfeed_a" href="http://graph.renren.com/oauth/authorize?client_id={$_G['cache'][plugin][renren]['api_key']}&response_type=code&scope=publish_blog&redirect_uri=$_G['siteurl']plugin.php?id=renren:authfeed" target="_blank"></a><!--{/if}--><input type="checkbox" id="rrfeed" name="rrfeed" class="" value="1"<!--{if $iffeed[5]}--> checked="checked"<!--{/if}--><!--{if !$perm}--> onclick="rrpermcheck();"<!--{/if}--> /><label for="rrfeed" Style="position: relative;top:-2px;"> {lang renren:rr_note_feedthread} </label></td><td>
+	<img    src="source/plugin/renren/template/image/rr.png" /></td></tr></table>
+	</p>
+
+<!--{/block}-->

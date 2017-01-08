@@ -1,0 +1,16 @@
+<?php
+$huwbUserRs = array (
+  1146 => 
+  array (
+    'uid' => '1146',
+    'username' => 'ÍõÉ­',
+    'sina_uid' => '1903254024',
+  ),
+  4313 => 
+  array (
+    'uid' => '4313',
+    'username' => 'óã×ÓÎõYY',
+    'sina_uid' => '5484273684',
+  ),
+)
+?>

@@ -1,0 +1,454 @@
+{subtemplate common/header}
+<style type="text/css">
+	#ct{background:url(static/image/common/vline.png) #FFF repeat-y scroll 760px 0;}
+	#ct a{color:#2366A8;}
+	#sd{width:200px;}
+	.sd h1{font-size:14px;margin:10px 25px 10px;}
+	.sd li{margin:0 0 0 10px;background:url("static/image/common/dot.gif") no-repeat scroll 0 8px transparent;padding:0 0 0 10px;}
+	.sd ul{margin:0 0 10px 0;}
+	.mn{width:760px;}
+	.datalist table{border:1px solid #E6E7E1;margin-bottom:30px;width:100%;border-collapse:collapse;empty-cells:show;}
+	.datalist th, td {padding:4px 10px;border:1px solid #E6E7E1;font-weight:400;}
+	.colplural{background-color:#F5F5F5;}
+	.pn{margin:10px;padding:0 10px;}
+	#exc_ane{padding:0 0;margin:;}
+</style>
+<div id="online" class="bm oll">
+<div class="bm_h"><a href="index.php">$_G[setting][bbname]</a> &rsaquo; <a href="plugin.php?id=examore:index">{$pluginname}</a></div>
+<!--{if empty($examore) || is_numeric($examore)}-->
+	<div style="padding:10px;">
+		<table cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<th class="h"><b>最新试卷</b></th>
+			</tr>
+			<tr align="center">
+				<td>出错了！<br/>可能因为下列原因，请与网站管理员联系：<br/>·在线考试系统尚未通过审核<br/>·网站管理员未开放考试系统<br/>·考试多网站系统正在升级中</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<!--{else}-->
+	<div>
+		<table width="100%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="20%" valign="top" align="left">
+					<div style="width:98%;" class="datalist">
+						<table width="100%" cellspacing="0" cellpadding="0">
+							<tr>
+								<th><b>考试中心</b></th>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">当前版本：{$examore_version}</td>
+							</tr>
+							<tr>
+								<th><b>考生资料</b></th>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">用户名：<b>{$_G['username']}</b></td>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">级别：{$_G[group][grouptitle]}</td>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">用户积分：{$_G['setting']['extcredits'][$examunit][title]}{$usrmoney}{$_G['setting']['extcredits'][$examunit][unit]}</td>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">{$feetype}：{$_G['setting']['extcredits'][$examunit][title]}{$examfee}{$_G['setting']['extcredits'][$examunit][unit]}</td>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">考试次数：<script type="text/javascript" src="http://www.examore.net/hack.php?H_name=$examv&em_sid=0&em_eid=0&em_cs={$examore_charset}&{$examenum}"></script></td>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">错题数量：<script type="text/javascript" src="http://www.examore.net/hack.php?H_name=$examv&em_sid=0&em_eid=0&em_cs={$examore_charset}&{$examqnum}"></script></td>
+							</tr>
+							<tr>
+								<th><b>使用说明</b></th>
+							</tr>
+							<tr>
+								<td style="padding-left:8px">
+									·点击右边列表中的试卷名即可进入考场<br/>
+									·考试开始前会有几秒钟试题加载时间，请耐心等待<br/>
+									·试题加载完成以后，可以断网进行考试，不影响交卷时的计分和查看答案、解析<br/>
+									·考试过程中可随时暂停<br/>
+									·如果将“乱序答案”功能选择为“是”，每道题的答案选项将随机排列，但是会造成答案解析中关于选项的描述无法匹配<br/>
+									·有什么好的想法建议，请与管理员联系，以便我们收集足够的信息对系统进行改进，为考生们提供更优质的在线考试服务
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				<td width="80%" valign="top" align="left">
+					<div class="datalist">
+						<table cellspacing="0" cellpadding="0" width="100%">
+<!--{if empty($em_action)}-->
+							<th style="font-weight:bold;">试卷列表 <a href="$basename&em_action=examlog" style="font-weight:normal;">考试历史</a></th>
+<!--{elseif $em_action=='examlog'}-->
+							<th style="font-weight:bold;"><a href="$basename" style="font-weight:normal;">试卷列表</a> 考试历史</th>
+<!--{elseif $em_action=='examwrong'}-->
+							<th style="font-weight:bold;"><a href="$basename" style="font-weight:normal;">试卷列表</a> <a href="$basename&em_action=examlog" style="font-weight:normal;">考试历史</a> 错题挑战</th>
+<!--{elseif $em_action=='examrandom'}-->
+							<th style="font-weight:bold;"><a href="$basename" style="font-weight:normal;">试卷列表</a> <a href="$basename&em_action=examlog" style="font-weight:normal;">考试历史</a> 随机抽题</th>
+<!--{elseif $em_action=='examtop'}-->
+							<th style="font-weight:bold;"><a href="$basename" style="font-weight:normal;">试卷列表</a> <a href="$basename&em_action=examlog" style="font-weight:normal;">考试历史</a> 考试排名</th>
+<!--{/if}-->
+							<tr>
+								<td style="text-align:center;"><span id="examoreList" name="examoreList"></span></td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div id="infobox" style="padding:3px; width:600px; height:400px; border:3px; position:absolute; z-index:100000; visibility:hidden; display:none; background-color:#FFF;">
+	<table border="0" width="100%" style="text-align:left;" class="datalist">
+		<tr>
+			<td colspan="3" align="right">关闭本窗口→<input type="button" value="Ｘ" onclick="hideBox();" /></td>
+		</tr>
+		<tr>
+			<th style="text-align:center; font-weight:bold;" colspan="3" id="examoreinfo0">&nbsp;</th>
+		</tr>
+		<tr>
+			<td width="15%" style="text-align:right;">科目：</td>
+			<td width="35%" id="examoreinfo1">&nbsp;</td>
+			<td width="50%" rowspan="8" align="center" valign="middle" style="line-height:26px;">您好<span style="color:red; font-weight:bold;">{$_G['username']}</span><br/>这是<span style="color:red; font-weight:bold;" id="examoreinfo11">&nbsp;</span>考试的<span style="color:red; font-weight:bold;" id="examoreinfo22">&nbsp;</span><br/>
+<!--{if empty($em_action)}-->
+			一共考过<span style="color:red; font-weight:bold;" id="examoreinfo8">&nbsp;</span>次
+<!--{elseif $em_action=='examlog'}-->
+			您上次得分为<span style="color:red; font-weight:bold;" id="examoreinfo8">&nbsp;</span>分
+<!--{/if}-->
+			<br/>左边是该试卷的一些基本信息<br/>
+<!--{if $examfee}-->
+			本次考试将扣除您<span style="color:red; font-weight:bold;">{$_G['setting']['extcredits'][$examunit]['title']}{$examfee} {$_G['setting']['extcredits'][$examunit]['unit']}</span>
+<!--{else}-->
+			<span style="color:red; font-weight:bold;">本次考试免费，不会扣除您任何积分</span>
+<!--{/if}-->
+			<br/>您确定开始考试请点击下面按钮<br/>
+<!--{if $usrmoney>=$examfee}-->
+<br/>考试模式：<input id="examode" name="examode" type="radio" value="1" onclick="mode=1;" />多题显示<input id="examode" name="examode" type="radio" value="0" onclick="mode=2;" checked />单题显示
+<br/>乱序答案：<input id="randomanswer" name="randomanswer" type="radio" value="1" onclick="random=1;" />是<input id="randomanswer" name="randomanswer" type="radio" value="0" onclick="random=0;" checked />否<br/>
+<!--{if $examfee!="0"}-->
+<br/><input id="payBtn" name="payBtn" type="button" value="支付费用" onclick="this.disabled=true; payExam();" /><input id="doBtn" name="doBtn" type="button" value="确定开考" onclick="this.disabled=true; doExam();" style="display:none;" />
+<!--{else}-->
+<br/><input type="button" value="确定开考" onclick="this.disabled=true; doExam();" />
+<!--{/if}-->
+<!--{else}-->
+<br/>对不起！<br/><span style="text-decoration:underline;">您只有<span style="color:red; font-weight:bold;">{$_G['setting']['extcredits'][$examunit][title]}{$usrmoney}{$_G['setting']['extcredits'][$examunit][unit]}</span>无法进行考试！</span>
+<!--{/if}-->
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">类型：</td>
+			<td id="examoreinfo2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">题型：</td>
+			<td id="examoreinfo3">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">题量：</td>
+			<td id="examoreinfo4">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">时间：</td>
+			<td id="examoreinfo5">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">满分：</td>
+			<td id="examoreinfo6">&nbsp;</td>
+		</tr>
+		<tr>
+			<td style="text-align:right;">难度：</td>
+			<td id="examoreinfo7" style="color:red;">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+<div id="maskbox" style="position:absolute; z-index:99999; top:0; left:0; background:#000000; -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=50)'; filter:alpha(opacity=50); opacity: .5; visibility:hidden; display:none;"></div>
+<script language="javascript">
+var xmlHttp = false;
+var httpResponse = "";
+try {
+	xmlHttp = new XMLHttpRequest();
+} catch (trymicrosoft) {
+	try {
+		xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+	} catch (othermicrosoft) {
+		try {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (failed) {
+			xmlHttp = false;
+		}
+	}
+}
+if (!xmlHttp){
+	msg("初始化在线考试程序失败<br>请使用IE5.5及其以上版本的浏览器","1","window.close();");
+}
+var examsid = {$em_sid};
+var exameid = {$em_eid};
+var examinfo = "";
+var mode = 2;
+var random = 0;
+var loc = top.window.location.href;
+var exampage = {$em_page};
+loc = loc.substring(loc.indexOf("?")+1,loc.length);
+loc = loc.split("&");
+for (i=0; i<loc.length; i++){
+	if (loc[i].indexOf("em_sid=") == 0){
+		examsid = loc[i].substring(7,loc[i].length);
+	}
+	if (loc[i].indexOf("em_page=") == 0){
+		exampage = loc[i].substring(8,loc[i].length);
+	}
+}
+<!--{if empty($em_action)}-->
+document.write("<script type='text/javascript' src='http://www.examore.net/hack.php?H_name=$examv&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&em_page="+exampage+"&{$examlist}'><\/script>");
+<!--{elseif $em_action=='examlog'}-->
+document.write("<script type='text/javascript' src='http://www.examore.net/hack.php?H_name=$examv&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&em_page="+exampage+"&{$examlog}'><\/script>");
+<!--{elseif $em_action=='examwrong'}-->
+document.write("<script type='text/javascript' src='http://www.examore.net/hack.php?H_name=$examv&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&em_page="+exampage+"&{$examwrong}'><\/script>");
+<!--{elseif $em_action=='examrandom'}-->
+document.write("<script type='text/javascript' src='http://www.examore.net/hack.php?H_name=$examv&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&em_page="+exampage+"&{$examrandom}'><\/script>");
+<!--{elseif $em_action=='examtop'}-->
+document.write("<script type='text/javascript' src='http://www.examore.net/hack.php?H_name=$examv&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&em_page="+exampage+"&{$examtop}'><\/script>");
+<!--{/if}-->
+window.onload = function(){
+	if(typeof(window.showModalDialog)=="undefined"){
+		window.moveTo(0,0) ;
+		window.resizeTo(screen.availWidth,screen.availHeight) ;
+	}
+}
+window.onscroll = function(){
+	initBox();
+}
+function gotoPage(n){
+	exampage = n;
+	var hasgoto = 0;
+	for (i=0; i<loc.length; i++){
+		if (loc[i].indexOf("em_page=") == 0){
+			loc[i] = "em_page=" + exampage;
+			hasgoto = 1;
+		}
+	}
+	loc[0] = "";
+	if (hasgoto){
+		top.window.location.href = "$basename" + loc.join("&");
+	}else{
+		top.window.location.href += "&em_page=" + exampage;
+	}
+	return false;
+}
+function gotoSubject(n){
+	examsid = n;
+	var hasgoto = 0;
+	for (i=0; i<loc.length; i++){
+		if (loc[i].indexOf("em_page=") == 0){
+			loc[i] = "em_page=1";
+		}
+		if (loc[i].indexOf("em_sid=") == 0){
+			loc[i] = "em_sid=" + examsid;
+			hasgoto = 1;
+		}
+	}
+	loc[0] = "";
+	if (hasgoto){
+		top.window.location.href = "$basename" + loc.join("&");
+	}else{
+		top.window.location.href += "&em_sid=" + examsid;
+	}
+	return false;
+}
+var infoBox = document.getElementById("infobox");
+var maskBox = document.getElementById("maskbox");
+var payBox = document.getElementById("paybox");
+function showBox(info, sid, eid){
+	maskBox.style.visibility = "visible";
+	maskBox.style.display = "block";
+	infoBox.style.visibility = "visible";
+	infoBox.style.display = "block";
+	initBox();
+	examsid = sid;
+	exameid = eid;
+	examinfo = encodeURIComponent(info);
+	info = info.split("||");
+	var tl = "";
+	for (var i = 0; i<5; i++){
+		tl+=(i<info[7])?"★":"☆";
+	}
+	document.getElementById("examoreinfo0").innerHTML = info[0];
+	document.getElementById("examoreinfo1").innerHTML = info[1];
+	document.getElementById("examoreinfo11").innerHTML = info[1];
+	document.getElementById("examoreinfo2").innerHTML = info[2];
+	document.getElementById("examoreinfo22").innerHTML = info[2];
+	document.getElementById("examoreinfo3").innerHTML = info[3].replace(/(br)/g,"<br>");
+	document.getElementById("examoreinfo4").innerHTML = info[4];
+	document.getElementById("examoreinfo5").innerHTML = info[5];
+	document.getElementById("examoreinfo6").innerHTML = info[6];
+	document.getElementById("examoreinfo7").innerHTML = tl;
+<!--{if ($em_action!="examwrong"&&$em_action!="examrandom")}-->
+	document.getElementById("examoreinfo8").innerHTML = info[8];
+<!--{/if}-->
+	return false;
+}
+function hideBox(){
+	infoBox.style.visibility = "hidden";
+	infoBox.style.display = "none";
+	maskBox.style.visibility = "hidden";
+	maskBox.style.display = "none";
+	examsid = 0;
+	exameid = 0;
+	examinfo = "";
+}
+function initBox(){
+	var body = (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth)?document.documentElement:document.body;
+	var top = document.documentElement.scrollTop || document.body.scrollTop;
+	var left = document.documentElement.scrollLeft || document.body.scrollLeft;
+	infoBox.style.left = (body.clientWidth - infoBox.clientWidth)/2 + left + "px";
+	infoBox.style.top = (body.clientHeight - infoBox.clientHeight)/2 + top + "px";
+	maskBox.style.width = Math.max(body.clientWidth) + "px";
+	maskBox.style.height = body.clientHeight+ top + "px";
+}
+function resetExam(){
+	examOpen("http://www.examore.net/hack.php?H_name=$examv"+"&em_sid="+examsid+"&em_eid="+exameid+"&em_cs={$examore_charset}&{$examreset}", "考试多examore");
+	location = "{$basename}";
+}
+function wrongExam(){
+	location = "{$basename}&em_action=examwrong";
+}
+function randomExam(){
+	location = "{$basename}&em_action=examrandom";
+}
+function topExam(n){
+	exameid = n;
+	location = "{$basename}&em_action=examtop&em_eid="+exameid;
+}
+function payExam(){
+	var url = "{$basename}&em_action=exampay&em_eid="+exameid+"&em_dt=" + new Date().getTime();
+	xmlHttp.open("GET", url, true);
+	xmlHttp.onreadystatechange = function(){
+		if (xmlHttp.readyState == 4) {
+			if (xmlHttp.status == 200) {
+				document.getElementById("payBtn").style.display = "none";
+				document.getElementById("doBtn").style.display = "block";
+			}
+		}
+	}
+	xmlHttp.send(null);
+}
+function doExam(){
+	examOpen("http://www.examore.net/hack.php?H_name=$examv"+"&em_sid="+examsid+"&em_eid="+exameid+"&em_cs=utf8&em_mode="+mode+"&em_ra="+random+"&{$examdo}", "考试多examore");
+	return false;
+}
+function examOpen(oUrl,oName){
+	if(typeof(window.showModalDialog)!="undefined"){
+		window.showModalDialog(oUrl, oName, "dialogWidth="+window.screen.availWidth+"px;dialogHeight="+window.screen.availHeight+"px;scroll=1;center=1;help=0;resizable=0;status=0;");
+	}else{
+		window.open(oUrl, oName, "menubar=0,toolbar=0,directories=0,location=0,status=0,scrollbars=1,width="+(window.screen.availWidth-10)+",height="+(window.screen.availHeight-30)+",top=0,left=0,resizable=0");
+	}
+	window.location.replace(window.location.href);
+}
+
+function checkMod(){
+	var qs = document.getElementById("uqs");
+	var cs = document.getElementById("cs");
+	var et = document.getElementById("et");
+	var ts = document.getElementById("ts");
+	if (et.value=="" || parseInt(et.value)<1){
+		alert("请输入考试时间！");
+		et.focus();
+		return false;
+	}
+	if (ts.value=="" || parseInt(ts.value)<1){
+		alert("请输入总分！");
+		ts.focus();
+		return false;
+	}
+	if (cs.value=="" || parseInt(cs.value)<1){
+		alert("请设置试题！");
+		return false;
+	}else{
+		examsid = cs.value;
+		exameid = "random";
+		showBox("随机抽题||随机题库||随机题||随机题||"+uqs.innerHTML+"||"+et.value+"||"+ts.value+"||5||0",cs.value,"random");
+	}
+}
+function checket(){
+	var et = document.getElementById("et");
+	var uet = document.getElementById("uet");
+	et.value = parseInt(et.value);
+	if (parseInt(et.value) < 1 || isNaN(parseInt(et.value))){
+		et.value = 45;
+	}
+	if (parseInt(et.value) > 150){
+		et.value = 150;
+	}
+	uet.innerHTML = et.value;
+	showRandom();
+}
+function checkts(){
+	var ts = document.getElementById("ts");
+	var uts = document.getElementById("uts");
+	ts.value = parseInt(ts.value);
+	if (parseInt(ts.value) < 1 || isNaN(parseInt(ts.value))){
+		ts.value = 100;
+	}
+	if (parseInt(ts.value) > 150){
+		ts.value = 150;
+	}
+	uts.innerHTML = ts.value;
+	showRandom();
+}
+function checkqs(obj,num){
+	var uqs = document.getElementById("uqs");
+	var tnum = document.getElementById("tnum");
+	var qnum = 0;
+	obj.value = (parseInt(obj.value)>parseInt(num))?parseInt(num):parseInt(obj.value);
+	for (var i=1; i<=tnum.value; i++){
+		var q = document.getElementById("q"+i);
+		q.value = parseInt(q.value);
+		if (parseInt(q.value) < 0 || isNaN(parseInt(q.value))){
+			q.value = 0;
+		}
+		if (document.getElementById("c"+i).checked){
+			qnum += parseInt(q.value);
+		}else{
+			document.getElementById("q"+i).value = 0;
+		}
+	}
+	if (qnum < 0){
+		qnum = 0;
+	}
+	if (qnum > 150){
+		obj.value = parseInt(obj.value)-(qnum-150);
+		qnum = 150;
+	}
+	uqs.innerHTML = qnum;
+	showRandom();
+}
+function checkcs(n){
+	var q = document.getElementById("q"+n);
+	var c = document.getElementById("c"+n);
+	if (!c.checked){
+		q.value = 0;
+	}
+	checkqs(q,150);
+}
+function showRandom(){
+	var uqs = document.getElementById("uqs");
+	var uts = document.getElementById("uts");
+	var uet = document.getElementById("uet");
+	var cs = document.getElementById("cs");
+	var tnum = document.getElementById("tnum");
+	var csv = uqs.innerHTML+"|"+uet.innerHTML+"|"+uts.innerHTML;
+	for (var i=1; i<=tnum.value; i++){
+		var q = document.getElementById("q"+i);
+		var c = document.getElementById("c"+i);
+		if (c.checked && q.value != "0"){
+			csv += "||"+c.value+"|"+q.value;
+		}
+	}
+	cs.value = csv;
+}
+</script>
+<!--{/if}-->
+{subtemplate common/footer}
